@@ -19,13 +19,14 @@ p "- #{category_one.name} #{category_one.id}"
 p "- #{category_two.name} #{category_two.id}"
 
 p 'create capacity'
-capacity_one = Capacity.create!(kind: 'livre de sort')
-capacity_two= Capacity.create!(kind: "point d'acier")
+capacity_one = Capacity.create!(kind: 'book_of_hex') # description: mage vs mage,  Applique attack si mage avec la même capacité sinon si sans capacité 1.2*attack si mage sinon
+capacity_two = Capacity.create!(kind: 'war_cry')
+capacity_three = Capacity.create!(kind: 'abracadabra')
 
 p 'create cards'
 card_mage_one = Card.create!(attack: 10, defense: 14, category: category_one, capacity: capacity_one)
-card_warrior = Card.create!(attack: 12, defense: 13, category: category_two, capacity: capacity_two)
-card_mage_two = Card.create!(attack: 11, defense: 10, category: category_one)
+card_warrior = Card.create!(attack: 13, defense: 13, category: category_two, capacity: capacity_two)
+card_mage_two = Card.create!(attack: 11, defense: 10, category: category_one, capacity: capacity_three)
 p "card_mage_one #{card_mage_one.inspect}"
 p "card_warrior #{card_warrior.inspect}"
 p  "card_mage_two #{card_mage_two.inspect}"
