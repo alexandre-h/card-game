@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'cards/index'
-
-  get 'cards/show'
 
   resources :gamers do
     get 'information', on: :member
@@ -12,4 +9,6 @@ Rails.application.routes.draw do
     get 'index', on: :member
     get 'show', on: :member
   end
+
+  get 'games/fight/:gamer_one/:gamer_two', to: 'games#fight'
 end
