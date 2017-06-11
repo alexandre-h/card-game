@@ -19,8 +19,8 @@ p "- #{category_one.name} #{category_one.id}"
 p "- #{category_two.name} #{category_two.id}"
 
 p 'create capacity'
-capacity_one = Capacity.create!(kind: 'livre de sort')
-capacity_two= Capacity.create!(kind: "point d'acier")
+capacity_one = Capacity.create!(kind: 'livre de sort') # description: mage vs mage,  Applique attack si mage avec la même capacité sinon si sans capacité 1.2*attack si mage sinon
+capacity_two = Capacity.create!(kind: "point d'acier")
 
 p 'create cards'
 card_mage_one = Card.create!(attack: 10, defense: 14, category: category_one, capacity: capacity_one)
