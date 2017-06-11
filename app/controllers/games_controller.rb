@@ -1,7 +1,7 @@
 require 'rules/fight'
 
 class GamesController < ApplicationController
-  before_action :set_users_card, only: [:fight]
+  before_action :set_users_card, only: [:fight, :played_card]
   def fight
     rules = Rules::Fight.new(@gamer_one, @card_gamer_one, @gamer_two, @card_gamer_two)
     game_result = rules.attack

@@ -14,9 +14,41 @@ module Rules
       attack_one = card_two_data[:defense] - card_one_data[:damage]
       attack_two = card_one_data[:defense] - card_two_data[:damage]
       if attack_one > attack_two
-        { player: @gamer_one, card: @card_one, desc: card_one_data[:description], attack_one: attack_one, attack_two: attack_two }
+        {
+            winner: @gamer_one,
+            card: @card_one,
+            loser: @gamer_two,
+            capacity_loser: @card_two.capacity.kind,
+            category_loser: @card_two.category.name,
+            desc: card_one_data[:description],
+            capacity: @card_one.capacity.kind,
+            category: @card_one.category.name,
+            attack_one: attack_one,
+            attack_two: attack_two
+
+        }
+      elsif attack_one < attack_two
+        {
+            winner: @gamer_two,
+            card: @card_two,
+            loser: @gamer_one,
+            capacity_loser: @card_one.capacity.kind,
+            category_loser: @card_one.category.name,
+            desc: card_two_data[:description],
+            capacity: @card_two.capacity.kind,
+            category: @card_two.category.name,
+            attack_one: attack_one,
+            attack_two: attack_two
+        }
       else
-        { player: @gamer_two, card: @card_two, desc: card_two_data[:description], attack_one: attack_one, attack_two: attack_two }
+        {
+            capacity: @card_two.capacity.kind,
+            category: @card_two.category.name,
+            capacity_loser: @card_one.capacity.kind,
+            category_loser: @card_one.category.name,
+            equality: true,
+            desc: card_two_data[:description]
+        }
       end
     end
 
@@ -72,9 +104,9 @@ module Rules
         when category_attacker != category_defender
           # the card have different capacity, if livre de sort VS cri de guerre
           if capacity_defender
-            { damage: attacker.attack + 2, defense: attacker.defense - 1, description: 'The capacity war_cry add +2 in attack when fight again a mage with book_of_hex and lose 1 in defense' }
+            { damage: attacker.attack + 3, defense: attacker.defense - 1, description: 'The capacity war_cry add +3 in attack when fight again a mage with book_of_hex and lose 1 in defense' }
           else
-            { damage: attacker.attack + 2, defense: attacker.defense + 1, description: 'The capacity war cry add +2 in attack and +1 in defense when fight again a mage without capacity' }
+            { damage: attacker.attack + 3, defense: attacker.defense + 1, description: 'The capacity war cry add +3 in attack and +1 in defense when fight again a mage without capacity' }
           end
       end
     end
@@ -98,7 +130,7 @@ module Rules
         when category_attacker != category_defender
           # the card have different capacity, if livre de sort VS cri de guerre
           if capacity_defender
-            { damage: attacker.attack + 3, defense: attacker.defense - 1, description: 'The capacity abracadabra add +3 in attack when fight again a warrior with war_cry and lose 1 in defense' }
+            { damage: attacker.attack + 2, defense: attacker.defense - 1, description: 'The capacity abracadabra add +2 in attack when fight again a warrior with war_cry and lose 1 in defense' }
           else
             { damage: attacker.attack + 1, defense: attacker.defense, description: 'The capacity abracadabra add +1 in attack when fight again a warrior with war_cry' }
           end

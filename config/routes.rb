@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get 'games/fight/:gamer_one/:gamer_two', to: 'games#fight'
+  get 'games/played_card/card_one/:card_one/card_two/:card_two', to: 'games#played_card'
 end

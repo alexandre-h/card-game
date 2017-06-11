@@ -25,7 +25,7 @@ capacity_three = Capacity.create!(kind: 'abracadabra')
 
 p 'create cards'
 card_mage_one = Card.create!(attack: 10, defense: 14, category: category_one, capacity: capacity_one)
-card_warrior = Card.create!(attack: 12, defense: 13, category: category_two, capacity: capacity_two)
+card_warrior = Card.create!(attack: 13, defense: 13, category: category_two, capacity: capacity_two)
 card_mage_two = Card.create!(attack: 11, defense: 10, category: category_one, capacity: capacity_three)
 p "card_mage_one #{card_mage_one.inspect}"
 p "card_warrior #{card_warrior.inspect}"
