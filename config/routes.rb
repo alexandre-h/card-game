@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :gamers do
+    get 'information', on: :member
+    get 'show_cards', on: :member
+  end
+
+  resources :cards do
+    get 'index', on: :member
+    get 'show', on: :member
+  end
+
+  get 'games/fight/:gamer_one/:gamer_two', to: 'games#fight'
+  get 'games/played_card/card_one/:card_one/card_two/:card_two', to: 'games#played_card'
 end
