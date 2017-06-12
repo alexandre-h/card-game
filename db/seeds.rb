@@ -7,19 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p 'create two players'
-gamer_one = Gamer.create!(name: 'alexandre')
+gamer_one = Gamer.create!(name: 'Alexandre')
 gamer_two = Gamer.create!(name: 'Bob')
 p 'players created'
 
 p 'create categories'
 category_one = Category.create!(name: 'mage')
-category_two = Category.create!(name: 'guerrier')
-p "2 categories created : "
+category_two = Category.create!(name: 'warrior')
+p '2 categories created : '
 p "- #{category_one.name} #{category_one.id}"
 p "- #{category_two.name} #{category_two.id}"
 
 p 'create capacity'
-capacity_one = Capacity.create!(kind: 'book_of_hex') # description: mage vs mage,  Applique attack si mage avec la même capacité sinon si sans capacité 1.2*attack si mage sinon
+capacity_one = Capacity.create!(kind: 'book_of_hex')
 capacity_two = Capacity.create!(kind: 'war_cry')
 capacity_three = Capacity.create!(kind: 'abracadabra')
 
@@ -27,9 +27,7 @@ p 'create cards'
 card_mage_one = Card.create!(attack: 10, defense: 14, category: category_one, capacity: capacity_one)
 card_warrior = Card.create!(attack: 13, defense: 13, category: category_two, capacity: capacity_two)
 card_mage_two = Card.create!(attack: 11, defense: 10, category: category_one, capacity: capacity_three)
-p "card_mage_one #{card_mage_one.inspect}"
-p "card_warrior #{card_warrior.inspect}"
-p  "card_mage_two #{card_mage_two.inspect}"
+
 p 'create deck for 2 users'
 Deck.create!(gamer: gamer_one, card: card_mage_one)
 Deck.create!(gamer: gamer_one, card: card_warrior)

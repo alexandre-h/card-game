@@ -12,4 +12,10 @@ Rails.application.routes.draw do
 
   get 'games/fight/:gamer_one/:gamer_two', to: 'games#fight'
   get 'games/played_card/card_one/:card_one/card_two/:card_two', to: 'games#played_card'
+
+  resources :game_histories do
+    get 'gamer_all_history', on: :member
+    get 'gamer_victory_history', on: :member
+    get 'gamer_defeat_history', on: :member
+  end
 end
