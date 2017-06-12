@@ -43,7 +43,6 @@ namespace :game do
     uri = URI('http://localhost:3000/games/fight/1/2')
     response = Net::HTTP.get(uri)
     match_one = JSON.parse(response)
-    p match_one
     puts "The Gamer one, #{match_one['winner']['name'].capitalize}, played a card of category #{match_one['category']} with the capacity #{match_one['capacity']}".blue
     puts "The Gamer two, #{match_one['loser']['name'].capitalize}, played a card of category #{match_one['category_loser']} with the capacity #{match_one['capacity_loser']}".yellow
     sleep(5)
