@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is running with ruby 2.4.0 and rails 5.0.1
+Database postgres
 
-Things you may want to cover:
+To Launch the app, follow this step:
 
-* Ruby version
+- clone the repo
+- Create the database (rake db:create, rake db:migrate)
+- run the seeds (rake db:seed)
+- run a server in your console (rails s)
+- In an other console run the game script (bundle exec rake game:run)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You should see in output the logs from the API call.
