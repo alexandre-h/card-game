@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-  # load_resource will find the card i select and create a variable @card
  load_resource :card
 
   def index
