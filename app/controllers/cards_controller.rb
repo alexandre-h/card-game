@@ -6,7 +6,5 @@ class CardsController < ApplicationController
     json_response(@cards)
   end
 
-  def show
-    json_response(@card)
-  end
+
 end
